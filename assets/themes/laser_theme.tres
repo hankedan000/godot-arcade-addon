@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ck3dlhrnk0aax"]
+
+[ext_resource type="FontFile" path="res://Quantico30.tres" id="1_4jvs2"]
+
+[resource]
+Button/fonts/font = ExtResource("1_4jvs2")
+Label/fonts/font = ExtResource("1_4jvs2")

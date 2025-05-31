@@ -1,0 +1,242 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource type="Theme" path="res://addons/arcade/scenes/ui/keyboard/KeyBoard.theme" id="1"]
+[ext_resource type="Script" path="res://addons/arcade/scenes/ui/keyboard/ArcadeKeyboard.gd" id="2"]
+[ext_resource type="FontFile" path="res://addons/arcade/scenes/ui/keyboard/rub-end_font.tres" id="3"]
+[ext_resource type="PackedScene" uid="uid://co5u2hl67dtcj" path="res://addons/arcade/scenes/arcade_player_input/ArcadePlayerInput.tscn" id="4"]
+
+[node name="ArcadeKeyboard" type="Panel"]
+offset_left = 103.0
+offset_top = 190.0
+offset_right = 485.0
+offset_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="keyGrid" type="GridContainer" parent="."]
+editor/display_folded = true
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 375.0
+offset_bottom = 123.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+columns = 10
+
+[node name="a" type="Button" parent="keyGrid"]
+offset_right = 33.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "A"
+
+[node name="b" type="Button" parent="keyGrid"]
+offset_left = 37.0
+offset_right = 70.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "B"
+
+[node name="c" type="Button" parent="keyGrid"]
+offset_left = 74.0
+offset_right = 107.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "C"
+
+[node name="d" type="Button" parent="keyGrid"]
+offset_left = 111.0
+offset_right = 144.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "D"
+
+[node name="e" type="Button" parent="keyGrid"]
+offset_left = 148.0
+offset_right = 181.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "E"
+
+[node name="f" type="Button" parent="keyGrid"]
+offset_left = 185.0
+offset_right = 218.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "F"
+
+[node name="g" type="Button" parent="keyGrid"]
+offset_left = 222.0
+offset_right = 255.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "G"
+
+[node name="h" type="Button" parent="keyGrid"]
+offset_left = 259.0
+offset_right = 292.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "H"
+
+[node name="i" type="Button" parent="keyGrid"]
+offset_left = 296.0
+offset_right = 330.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "I"
+
+[node name="j" type="Button" parent="keyGrid"]
+offset_left = 334.0
+offset_right = 368.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+text = "J"
+
+[node name="k" type="Button" parent="keyGrid"]
+offset_top = 40.0
+offset_right = 33.0
+offset_bottom = 76.0
+size_flags_vertical = 3
+text = "K"
+
+[node name="l" type="Button" parent="keyGrid"]
+offset_left = 37.0
+offset_top = 40.0
+offset_right = 70.0
+offset_bottom = 76.0
+text = "L"
+
+[node name="m" type="Button" parent="keyGrid"]
+offset_left = 74.0
+offset_top = 40.0
+offset_right = 107.0
+offset_bottom = 76.0
+text = "M"
+
+[node name="n" type="Button" parent="keyGrid"]
+offset_left = 111.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 76.0
+text = "N"
+
+[node name="o" type="Button" parent="keyGrid"]
+offset_left = 148.0
+offset_top = 40.0
+offset_right = 181.0
+offset_bottom = 76.0
+text = "O"
+
+[node name="p" type="Button" parent="keyGrid"]
+offset_left = 185.0
+offset_top = 40.0
+offset_right = 218.0
+offset_bottom = 76.0
+text = "P"
+
+[node name="q" type="Button" parent="keyGrid"]
+offset_left = 222.0
+offset_top = 40.0
+offset_right = 255.0
+offset_bottom = 76.0
+text = "Q"
+
+[node name="r" type="Button" parent="keyGrid"]
+offset_left = 259.0
+offset_top = 40.0
+offset_right = 292.0
+offset_bottom = 76.0
+text = "R"
+
+[node name="s" type="Button" parent="keyGrid"]
+offset_left = 296.0
+offset_top = 40.0
+offset_right = 330.0
+offset_bottom = 76.0
+text = "S"
+
+[node name="t" type="Button" parent="keyGrid"]
+offset_left = 334.0
+offset_top = 40.0
+offset_right = 368.0
+offset_bottom = 76.0
+text = "T"
+
+[node name="u" type="Button" parent="keyGrid"]
+offset_top = 80.0
+offset_right = 33.0
+offset_bottom = 116.0
+size_flags_vertical = 3
+text = "U"
+
+[node name="v" type="Button" parent="keyGrid"]
+offset_left = 37.0
+offset_top = 80.0
+offset_right = 70.0
+offset_bottom = 116.0
+text = "V"
+
+[node name="w" type="Button" parent="keyGrid"]
+offset_left = 74.0
+offset_top = 80.0
+offset_right = 107.0
+offset_bottom = 116.0
+text = "W"
+
+[node name="x" type="Button" parent="keyGrid"]
+offset_left = 111.0
+offset_top = 80.0
+offset_right = 144.0
+offset_bottom = 116.0
+text = "X"
+
+[node name="y" type="Button" parent="keyGrid"]
+offset_left = 148.0
+offset_top = 80.0
+offset_right = 181.0
+offset_bottom = 116.0
+text = "Y"
+
+[node name="z" type="Button" parent="keyGrid"]
+offset_left = 185.0
+offset_top = 80.0
+offset_right = 218.0
+offset_bottom = 116.0
+text = "Z"
+
+[node name="period" type="Button" parent="keyGrid"]
+offset_left = 222.0
+offset_top = 80.0
+offset_right = 255.0
+offset_bottom = 116.0
+text = "."
+
+[node name="hyphen" type="Button" parent="keyGrid"]
+offset_left = 259.0
+offset_top = 80.0
+offset_right = 292.0
+offset_bottom = 116.0
+text = "-"
+
+[node name="rub" type="Button" parent="keyGrid"]
+offset_left = 296.0
+offset_top = 80.0
+offset_right = 330.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource( 3 )
+text = "RUB"
+
+[node name="end" type="Button" parent="keyGrid"]
+offset_left = 334.0
+offset_top = 80.0
+offset_right = 368.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource( 3 )
+text = "END"
+
+[node name="PlayerInput" parent="." instance=ExtResource( 4 )]
+[connection signal="hide" from="." to="." method="_on_ArcadeKeyboard_hide"]
+[connection signal="visibility_changed" from="." to="." method="_on_ArcadeKeyboard_visibility_changed"]

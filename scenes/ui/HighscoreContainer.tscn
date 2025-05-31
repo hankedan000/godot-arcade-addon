@@ -1,0 +1,168 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource type="Theme" uid="uid://ck3dlhrnk0aax" path="res://addons/arcade/assets/themes/laser_theme.tres" id="1"]
+[ext_resource type="FontFile" uid="uid://cux2jhxhei61c" path="res://Quantico-Regular.ttf" id="2"]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Container
+
+@export var max_highscores = 5
+
+var highscores := HighscoreTable.new()
+
+func _ready():
+	highscores.max_highscores = max_highscores
+	highscores.connect(\"new_score_added\", Callable(self, \"onNewHighScoreAdded\"))
+	connect(\"visibility_changed\", Callable(self, \"_on_visiblity_changed\"))
+	reflow()
+	loadFromDisk()
+	
+func _on_visiblity_changed():
+	var worth_showing = highscores.getHighscores().size() > 0
+	
+	for child in get_children():
+		if child.name == \"BaseEntry\":
+			child.visible = false
+		else:
+			child.visible = worth_showing and visible
+
+func _getSavepath():
+	var projectName = ProjectSettings.get_setting(\"application/config/name\")
+	return \"user://%s.hi\" % projectName
+
+func saveToDisk():
+	var saveFile = File.new()
+	saveFile.open(_getSavepath(),File.WRITE)
+	
+	var saveData = highscores.save_game()
+	saveFile.store_line(JSON.stringify(saveData))
+	saveFile.close()
+	
+func loadFromDisk():
+	var saveFile = File.new()
+	if not saveFile.file_exists(_getSavepath()):
+		return
+		
+	saveFile.open(_getSavepath(),File.READ)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(saveFile.get_as_text()).result
+	var data = test_json_conv.get_data()
+	if data:
+		highscores.load_game(data)
+
+# clears the scroll list and add re-adds to the panel
+func reflow():
+	for entry in $ScrollContainer/VBoxContainer.get_children():
+		entry.queue_free()
+		
+	var i = 1
+	for highscore in highscores.getHighscores():
+		var newEntry = $BaseEntry.duplicate()
+		newEntry.get_node(\"place\").text = (\"%d:\" % i)
+		newEntry.get_node(\"name\").text = highscore.playerName()
+		newEntry.get_node(\"score\").text = str(highscore.score())
+		newEntry.visible = true
+		$ScrollContainer/VBoxContainer.add_child(newEntry)
+		i += 1
+		
+		if i > max_highscores:
+			break
+		
+func onNewHighScoreAdded():
+	reflow()
+	saveToDisk()"
+
+[sub_resource type="FontFile" id=2]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[node name="HighscoreContainer" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = SubResource( 1 )
+
+[node name="BaseEntry" type="HBoxContainer" parent="."]
+editor/display_folded = true
+visible = false
+offset_right = 600.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+theme = SubResource( 3 )
+
+[node name="place" type="Label" parent="BaseEntry"]
+offset_right = 49.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+text = "1: "
+
+[node name="name" type="Label" parent="BaseEntry"]
+offset_left = 53.0
+offset_right = 544.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+text = "TestPlayer"
+
+[node name="score" type="Label" parent="BaseEntry"]
+offset_left = 548.0
+offset_right = 599.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "4000"
+align = 2
+
+[node name="Label" type="Label" parent="."]
+offset_right = 600.0
+offset_bottom = 44.0
+size_flags_horizontal = 3
+text = "Highscores"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+editor/display_folded = true
+offset_top = 48.0
+offset_right = 600.0
+offset_bottom = 800.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+editor/display_folded = true
+offset_right = 600.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+
+[node name="BaseEntry2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+editor/display_folded = true
+offset_right = 600.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+theme = SubResource( 3 )
+
+[node name="place" type="Label" parent="ScrollContainer/VBoxContainer/BaseEntry2"]
+offset_right = 49.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+text = "1: "
+
+[node name="name" type="Label" parent="ScrollContainer/VBoxContainer/BaseEntry2"]
+offset_left = 53.0
+offset_right = 544.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+text = "TestPlayer"
+
+[node name="score" type="Label" parent="ScrollContainer/VBoxContainer/BaseEntry2"]
+offset_left = 548.0
+offset_right = 599.0
+offset_bottom = 30.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "4000"
+align = 2

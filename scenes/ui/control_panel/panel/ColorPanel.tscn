@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource type="Texture2D" uid="uid://gnu5qg3mjfcg" path="res://addons/arcade/scenes/ui/control_panel/panel/panel.png" id="1"]
+
+
+
+[node name="ColorPanel" type="Sprite2D"]
+position = Vector2( 260.691, 387.448 )
+texture = ExtResource( 1 )

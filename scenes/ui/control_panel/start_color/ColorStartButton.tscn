@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource type="Texture2D" uid="uid://sfqtccp5nt1g" path="res://addons/arcade/scenes/ui/control_panel/start_color/pressed.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bayf5a1docv0r" path="res://addons/arcade/scenes/ui/control_panel/start_color/released.png" id="2"]
+
+
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "pressed",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "released",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "press_and_hold",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "press_release",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "release_press",
+"speed": 2.0
+} ]
+
+[node name="ColorStartButton" type="AnimatedSprite2D"]
+position = Vector2( 791, 146 )
+frames = SubResource( 3 )
+animation = "press_release"
+playing = true

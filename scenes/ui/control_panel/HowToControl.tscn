@@ -1,0 +1,316 @@
+[gd_scene load_steps=19 format=3 uid="uid://dnfbdblu617du"]
+
+[ext_resource type="PackedScene" path="res://addons/arcade/scenes/ui/control_panel/panel/ColorPanel.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://addons/arcade/scenes/ui/control_panel/joystick_color/ColorJoystick.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://c41l3iytfs5go" path="res://addons/arcade/scenes/ui/control_panel/joystick_color/center.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1wgnavqd2j0f" path="res://addons/arcade/scenes/ui/control_panel/joystick_color/left.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://2w4ov41mgavo" path="res://addons/arcade/scenes/ui/control_panel/joystick_color/right.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://d1sp60mff06mk" path="res://addons/arcade/scenes/ui/control_panel/joystick_color/up.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bga02fwuejta5" path="res://addons/arcade/scenes/ui/control_panel/joystick_color/down.png" id="7"]
+[ext_resource type="PackedScene" path="res://addons/arcade/scenes/ui/control_panel/fire_color/ColorFireButton.tscn" id="8"]
+[ext_resource type="Texture2D" uid="uid://524b0gyt7l7q" path="res://addons/arcade/scenes/ui/control_panel/fire_color/pressed.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dlr103ejnw4c0" path="res://addons/arcade/scenes/ui/control_panel/fire_color/released.png" id="10"]
+[ext_resource type="PackedScene" path="res://addons/arcade/scenes/ui/control_panel/start_color/ColorStartButton.tscn" id="11"]
+[ext_resource type="Texture2D" uid="uid://sfqtccp5nt1g" path="res://addons/arcade/scenes/ui/control_panel/start_color/pressed.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bayf5a1docv0r" path="res://addons/arcade/scenes/ui/control_panel/start_color/released.png" id="13"]
+[ext_resource type="FontFile" path="res://Quantico30.tres" id="14"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends Node2D
+
+@export var isPlayer2 : bool = false
+
+func _ready():
+	setPlaying(true)
+	
+	$p1Start.visible = not isPlayer2
+	$p2Start.visible = not isPlayer2
+	
+func setPlaying(playing: bool) -> void:
+	for child in get_children():
+		if child is AnimatedSprite2D:
+			if playing:
+				child.play()
+			else:
+				child.stop()
+"
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"left_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"left_right_up_down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": true,
+"name": &"up",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": true,
+"name": &"up_down",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"press_and_hold",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": true,
+"name": &"press_release",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": true,
+"name": &"release",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"release_press",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
+"loop": true,
+"name": &"press_and_hold",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
+"loop": true,
+"name": &"press_release",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
+"loop": true,
+"name": &"release_press",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
+"loop": true,
+"name": &"released",
+"speed": 2.0
+}]
+
+[node name="ControlPanel" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = SubResource("1")
+
+[node name="panel" parent="." instance=ExtResource("1")]
+position = Vector2(238.5, 122.948)
+
+[node name="joystick" parent="." instance=ExtResource("2")]
+position = Vector2(119.448, 116.357)
+sprite_frames = SubResource("2")
+animation = &"left_right_up_down"
+frame = 1
+
+[node name="fire" parent="." instance=ExtResource("8")]
+position = Vector2(337.215, 157.07)
+sprite_frames = SubResource("3")
+animation = &"release"
+frame = 0
+
+[node name="p1Start" parent="." instance=ExtResource("11")]
+position = Vector2(305.5, 40.5)
+sprite_frames = SubResource("4")
+animation = &"released"
+
+[node name="p2Start" parent="." instance=ExtResource("11")]
+position = Vector2(365.5, 40.5)
+sprite_frames = SubResource("4")
+animation = &"released"
+
+[node name="joyLabel" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 189.0
+offset_right = 189.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("14")
+text = "Steer"
+horizontal_alignment = 1
+
+[node name="fireLabel" type="Label" parent="."]
+offset_left = 278.0
+offset_top = 189.0
+offset_right = 400.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("14")
+horizontal_alignment = 1

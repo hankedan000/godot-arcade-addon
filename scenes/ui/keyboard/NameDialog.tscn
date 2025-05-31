@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource type="Theme" path="res://addons/arcade/scenes/ui/keyboard/KeyBoard.theme" id="1"]
+[ext_resource type="PackedScene" path="res://addons/arcade/scenes/ui/keyboard/ArcadeKeyboard.tscn" id="2"]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends VBoxContainer
+
+signal name_entered(name)
+
+@export var is_player1 = true
+@export var caps_lock_on = true
+@export var caps_first_letter = true
+
+func _ready():
+	clearText()
+	set_is_player1(is_player1)
+	
+func set_is_player1(isP1):
+	is_player1 = isP1
+	$keyboard.set_is_player1(isP1)
+	
+func clearText():
+	$line.text = \"\"
+
+func _on_keyboard_char_entered(c):
+	if caps_lock_on:
+		c = c.to_upper()
+	if caps_first_letter and $line.text.length() == 0:
+		c = c.to_upper()
+	
+	$line.text += c
+
+func _on_keyboard_rub():
+	var oldStr = $line.text
+	$line.text = oldStr.substr(0,oldStr.length()-1)
+
+func _on_keyboard_end():
+	emit_signal(\"name_entered\",$line.text)
+	hide()
+"
+
+[node name="NameDialog" type="VBoxContainer"]
+offset_left = 40.0
+offset_top = 31.0
+offset_right = 420.0
+offset_bottom = 206.0
+theme = ExtResource( 1 )
+script = SubResource( 1 )
+
+[node name="line" type="LineEdit" parent="."]
+offset_right = 380.0
+offset_bottom = 40.0
+focus_mode = 0
+text = "<player_name>"
+editable = false
+focus_mode = 0
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="keyboard" parent="." instance=ExtResource( 2 )]
+offset_left = 0.0
+offset_top = 44.0
+offset_right = 380.0
+offset_bottom = 175.0
+[connection signal="char_entered" from="keyboard" to="." method="_on_keyboard_char_entered"]
+[connection signal="end" from="keyboard" to="." method="_on_keyboard_end"]
+[connection signal="rub" from="keyboard" to="." method="_on_keyboard_rub"]
