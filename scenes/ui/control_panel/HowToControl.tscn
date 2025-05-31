@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" path="res://addons/arcade/scenes/ui/control_panel/start_color/ColorStartButton.tscn" id="11"]
 [ext_resource type="Texture2D" uid="uid://sfqtccp5nt1g" path="res://addons/arcade/scenes/ui/control_panel/start_color/pressed.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://bayf5a1docv0r" path="res://addons/arcade/scenes/ui/control_panel/start_color/released.png" id="13"]
-[ext_resource type="FontFile" path="res://Quantico30.tres" id="14"]
+[ext_resource type="FontFile" path="res://addons/arcade/assets/fonts/Quantico30.tres" id="14"]
 
 [sub_resource type="GDScript" id="1"]
 script/source = "extends Node2D

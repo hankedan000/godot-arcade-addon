@@ -3,5 +3,5 @@
 [ext_resource type="FontFile" uid="uid://cux2jhxhei61c" path="res://addons/arcade/assets/fonts/Quantico-Regular.ttf" id="1"]
 
 [resource]
-size = 11
+size = 50
 font_data = ExtResource( 1 )
