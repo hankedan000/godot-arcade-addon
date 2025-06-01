@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2w4ov41mgavo"
-path="res://.godot/imported/right.png-b849a8da761aad81989b1c9134dd21bf.ctex"
+uid="uid://gnu5qg3mjfcg"
+path="res://.godot/imported/control_panel.png-efdfe53e3cbf9ed264c58122c5b73de6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcade/scenes/ui/control_panel/joystick_color/right.png"
-dest_files=["res://.godot/imported/right.png-b849a8da761aad81989b1c9134dd21bf.ctex"]
+source_file="res://addons/arcade/assets/sprites/control_panel.png"
+dest_files=["res://.godot/imported/control_panel.png-efdfe53e3cbf9ed264c58122c5b73de6.ctex"]
 
 [params]
 

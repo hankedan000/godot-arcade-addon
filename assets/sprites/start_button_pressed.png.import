@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gnu5qg3mjfcg"
-path="res://.godot/imported/panel.png-7c4c16b95f0a14953954554f5d161fc4.ctex"
+uid="uid://sfqtccp5nt1g"
+path="res://.godot/imported/start_button_pressed.png-074d3cca6c3ae759f400e6a1ea995a9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcade/scenes/ui/control_panel/panel/panel.png"
-dest_files=["res://.godot/imported/panel.png-7c4c16b95f0a14953954554f5d161fc4.ctex"]
+source_file="res://addons/arcade/assets/sprites/start_button_pressed.png"
+dest_files=["res://.godot/imported/start_button_pressed.png-074d3cca6c3ae759f400e6a1ea995a9c.ctex"]
 
 [params]
 

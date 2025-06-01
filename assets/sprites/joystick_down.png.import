@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c41l3iytfs5go"
-path="res://.godot/imported/center.png-d065212f980c26dec25211ae6971334d.ctex"
+uid="uid://bga02fwuejta5"
+path="res://.godot/imported/joystick_down.png-0f07d7a3549f3f314d7da1eb97d3994b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcade/scenes/ui/control_panel/joystick_color/center.png"
-dest_files=["res://.godot/imported/center.png-d065212f980c26dec25211ae6971334d.ctex"]
+source_file="res://addons/arcade/assets/sprites/joystick_down.png"
+dest_files=["res://.godot/imported/joystick_down.png-0f07d7a3549f3f314d7da1eb97d3994b.ctex"]
 
 [params]
 

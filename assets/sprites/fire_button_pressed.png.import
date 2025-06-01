@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://524b0gyt7l7q"
-path="res://.godot/imported/pressed.png-b2375ebd4e9e0f08453f0691000f7556.ctex"
+path="res://.godot/imported/fire_button_pressed.png-4374d0de8ed2907e237b9ba63ed0bd61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcade/scenes/ui/control_panel/fire_color/pressed.png"
-dest_files=["res://.godot/imported/pressed.png-b2375ebd4e9e0f08453f0691000f7556.ctex"]
+source_file="res://addons/arcade/assets/sprites/fire_button_pressed.png"
+dest_files=["res://.godot/imported/fire_button_pressed.png-4374d0de8ed2907e237b9ba63ed0bd61.ctex"]
 
 [params]
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7bemcli2hxui"]
+
+[ext_resource type="Texture2D" uid="uid://524b0gyt7l7q" path="res://addons/arcade/assets/sprites/fire_button_pressed.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dlr103ejnw4c0" path="res://addons/arcade/assets/sprites/fire_button_released.png" id="2"]
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 3.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"press_and_hold",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"press_release",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"release",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"release_press",
+"speed": 2.0
+}]
+
+[node name="FireButton" type="AnimatedSprite2D"]
+position = Vector2(483, 151)
+sprite_frames = SubResource("2")
+animation = &"press_and_hold"
+frame = 1

@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://dydc8oeo0tv26"]
+
+[ext_resource type="Texture2D" uid="uid://c41l3iytfs5go" path="res://addons/arcade/assets/sprites/joystick_center.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://d1wgnavqd2j0f" path="res://addons/arcade/assets/sprites/joystick_left.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://2w4ov41mgavo" path="res://addons/arcade/assets/sprites/joystick_right.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1sp60mff06mk" path="res://addons/arcade/assets/sprites/joystick_up.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bga02fwuejta5" path="res://addons/arcade/assets/sprites/joystick_down.png" id="5"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"left_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"left_right_up_down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"up",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
+"loop": true,
+"name": &"up_down",
+"speed": 2.0
+}]
+
+[node name="Joystick" type="AnimatedSprite2D"]
+position = Vector2(155, 132)
+sprite_frames = SubResource("1")
+animation = &"center"

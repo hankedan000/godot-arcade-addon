@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi3h1dp03q71i"]
+
+[ext_resource type="Texture2D" uid="uid://sfqtccp5nt1g" path="res://addons/arcade/assets/sprites/start_button_pressed.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bayf5a1docv0r" path="res://addons/arcade/assets/sprites/start_button_released.png" id="2"]
+
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 3.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"press_and_hold",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"press_release",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
+"loop": true,
+"name": &"release_press",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"released",
+"speed": 2.0
+}]
+
+[node name="StartButton" type="AnimatedSprite2D"]
+position = Vector2(791, 146)
+sprite_frames = SubResource("3")
+animation = &"released"

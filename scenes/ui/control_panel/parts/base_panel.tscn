@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfy5r6xuv3cjb"]
+
+[ext_resource type="Texture2D" uid="uid://gnu5qg3mjfcg" path="res://addons/arcade/assets/sprites/control_panel.png" id="1"]
+
+[node name="BasePanel" type="Sprite2D"]
+position = Vector2(260.691, 387.448)
+texture = ExtResource("1")

@@ -1,7 +1,24 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ck3dlhrnk0aax"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ck3dlhrnk0aax"]
 
 [ext_resource type="FontFile" path="res://addons/arcade/assets/fonts/Quantico30.tres" id="1_4jvs2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s6ap"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.101562, 0.101562, 0.101562, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [resource]
 Button/fonts/font = ExtResource("1_4jvs2")
 Label/fonts/font = ExtResource("1_4jvs2")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_8s6ap")

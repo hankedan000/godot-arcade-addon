@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnfbdblu617du"]
+
+[ext_resource type="PackedScene" uid="uid://bfy5r6xuv3cjb" path="res://addons/arcade/scenes/ui/control_panel/parts/base_panel.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dydc8oeo0tv26" path="res://addons/arcade/scenes/ui/control_panel/parts/joystick.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c7bemcli2hxui" path="res://addons/arcade/scenes/ui/control_panel/parts/fire_button.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://bi3h1dp03q71i" path="res://addons/arcade/scenes/ui/control_panel/parts/start_button.tscn" id="11"]
+[ext_resource type="FontFile" path="res://addons/arcade/assets/fonts/Quantico30.tres" id="14"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "@tool
+extends Node2D
+
+@export var is_player2: bool = false:
+	set(value):
+		is_player2 = value
+		if ! is_inside_tree():
+			await ready
+		p1_start.visible = not is_player2
+		p2_start.visible = not is_player2
+
+@onready var p1_start:= $P1Start
+@onready var p2_start:= $P2Start
+
+func _ready():
+	set_playing(true)
+	
+func set_playing(playing: bool) -> void:
+	for child in get_children():
+		if child is AnimatedSprite2D:
+			if playing:
+				child.play()
+			else:
+				child.stop()
+"
+
+[node name="ControlPanel" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = SubResource("1")
+
+[node name="Panel" parent="." instance=ExtResource("1")]
+position = Vector2(238.5, 122.948)
+
+[node name="Joystick" parent="." instance=ExtResource("2")]
+position = Vector2(119.448, 116.357)
+frame_progress = 0.577395
+
+[node name="Fire" parent="." instance=ExtResource("8")]
+position = Vector2(337.215, 157.07)
+animation = &"release"
+frame_progress = 0.482557
+
+[node name="P1Start" parent="." instance=ExtResource("11")]
+position = Vector2(305.5, 40.5)
+frame_progress = 0.451874
+
+[node name="P1StartLabel" type="Label" parent="P1Start"]
+offset_left = -28.0
+offset_top = 15.0
+offset_right = 32.0
+offset_bottom = 38.0
+horizontal_alignment = 1
+
+[node name="P2Start" parent="." instance=ExtResource("11")]
+position = Vector2(365.5, 40.5)
+frame_progress = 0.220252
+
+[node name="P2StartLabel" type="Label" parent="P2Start"]
+offset_left = -28.0
+offset_top = 15.0
+offset_right = 32.0
+offset_bottom = 38.0
+horizontal_alignment = 1
+
+[node name="JoyLabel" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 189.0
+offset_right = 189.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("14")
+horizontal_alignment = 1
+
+[node name="FireLabel" type="Label" parent="."]
+offset_left = 278.0
+offset_top = 189.0
+offset_right = 400.0
+offset_bottom = 233.0
+theme_override_fonts/font = ExtResource("14")
+horizontal_alignment = 1

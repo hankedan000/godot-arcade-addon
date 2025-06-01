@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bayf5a1docv0r"
-path="res://.godot/imported/released.png-868aee8caceb4efb5129affcc64841cc.ctex"
+path="res://.godot/imported/start_button_released.png-20830cb5ee21b75aba36e04e59f4ae8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcade/scenes/ui/control_panel/start_color/released.png"
-dest_files=["res://.godot/imported/released.png-868aee8caceb4efb5129affcc64841cc.ctex"]
+source_file="res://addons/arcade/assets/sprites/start_button_released.png"
+dest_files=["res://.godot/imported/start_button_released.png-20830cb5ee21b75aba36e04e59f4ae8a.ctex"]
 
 [params]
 
