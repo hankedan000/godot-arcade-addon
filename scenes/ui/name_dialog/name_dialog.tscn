@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dny1dbb6qik70"]
+
+[ext_resource type="Theme" uid="uid://nsj1o7v6k2xy" path="res://addons/arcade/scenes/ui/keyboard/keyboard.theme" id="1_476th"]
+[ext_resource type="Script" path="res://addons/arcade/scenes/ui/name_dialog/name_dialog.gd" id="2_1wj0k"]
+[ext_resource type="PackedScene" uid="uid://cdjs0iymlh4su" path="res://addons/arcade/scenes/ui/keyboard/keyboard.tscn" id="3_gdtuf"]
+
+[node name="NameDialog" type="VBoxContainer"]
+offset_left = 40.0
+offset_top = 31.0
+offset_right = 420.0
+offset_bottom = 206.0
+theme = ExtResource("1_476th")
+script = ExtResource("2_1wj0k")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+focus_mode = 0
+text = "<player_name>"
+editable = false
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Keyboard" parent="." instance=ExtResource("3_gdtuf")]
+layout_mode = 2
+hide_on_end = false
+
+[connection signal="char_entered" from="Keyboard" to="." method="_on_keyboard_char_entered"]
+[connection signal="end" from="Keyboard" to="." method="_on_keyboard_end"]
+[connection signal="rub" from="Keyboard" to="." method="_on_keyboard_rub"]
