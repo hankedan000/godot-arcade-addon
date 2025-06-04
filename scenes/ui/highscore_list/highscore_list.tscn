@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqdg1ti64woh"]
+
+[ext_resource type="Theme" uid="uid://ck3dlhrnk0aax" path="res://addons/arcade/assets/themes/laser_theme.tres" id="1_y5yg6"]
+[ext_resource type="Script" path="res://addons/arcade/scenes/ui/highscore_list/highscore_list.gd" id="2_gwook"]
+[ext_resource type="FontFile" uid="uid://cux2jhxhei61c" path="res://addons/arcade/assets/fonts/Quantico-Regular.ttf" id="3_vng6n"]
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("3_vng6n")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="3"]
+default_font = SubResource("2")
+
+[node name="HighscoreList" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource("1_y5yg6")
+script = ExtResource("2_gwook")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Highscores"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BaseEntry" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("3")
+
+[node name="place" type="Label" parent="ScrollContainer/VBoxContainer/BaseEntry"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+text = "1: "
+
+[node name="name" type="Label" parent="ScrollContainer/VBoxContainer/BaseEntry"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TestPlayer"
+
+[node name="score" type="Label" parent="ScrollContainer/VBoxContainer/BaseEntry"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "4000"
+horizontal_alignment = 2
